@@ -10,6 +10,7 @@ async function bootstrap() {
   const jetstreamName = process.env.JETSTREAM_NAME;
   const jetstreamSubjects = process.env.JETSTREAM_SUBJECT.split(',');
   const proxyUrl = process.env.PROXY_URL;
+  const port = process.env.PORT || 3100;
   const jetstreamOptions: CustomStrategy = {
     strategy: new NatsJetStreamServer({
       connectionOptions: {
@@ -35,6 +36,6 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const microservice = app.connectMicroservice(jetstreamOptions);
   await microservice.listen();
-  await app.listen(3005);
+  await app.listen(port);
 }
 bootstrap();
