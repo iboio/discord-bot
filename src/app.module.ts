@@ -12,7 +12,9 @@ import { Config } from './entities/config';
 import { DatabaseModule } from './database/database.module';
 import { RedisModule } from './redis/redis.module';
 import { JetstreamModule } from './jetstream/jetstream.module';
-
+import { setGlobalDispatcher, ProxyAgent } from 'undici';
+const proxyUrl = process.env.PROXY_URL;
+setGlobalDispatcher(new ProxyAgent(proxyUrl));
 @Module({
   imports: [
     ConfigModule.forRoot(),
@@ -27,7 +29,6 @@ import { JetstreamModule } from './jetstream/jetstream.module';
         IntentsBitField.Flags.GuildMessageReactions,
         IntentsBitField.Flags.GuildMessageTyping,
       ],
-      development: ['1043928530012086283'],
     }),
     TypeOrmModule.forRoot({
       type: 'mysql',

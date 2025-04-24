@@ -31,6 +31,7 @@
     "ioredis": "^5.6.0",
     "mysql2": "^3.14.0",
     "necord": "^6.8.8",
+    "node-global-proxy": "^1.0.1",
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.2",
     "typeorm": "^0.3.21"

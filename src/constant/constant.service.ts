@@ -10,13 +10,13 @@ export class ConstantService implements OnModuleInit {
   readonly logChannelChoice = [
     'Deleted Message',
     'Edited Message',
-    'Voice Status',
+    'Voice Event',
   ];
 
   readonly logChannelType = {
     DELETE: 'deleted-message',
     EDIT: 'edit-message',
-    VOICE: 'voice-status',
+    VOICE: 'voice-event',
   };
 
   mapToDiscordChannelType(logType: string): string | null {
@@ -25,7 +25,7 @@ export class ConstantService implements OnModuleInit {
         return this.logChannelType.DELETE;
       case 'Edited Message':
         return this.logChannelType.EDIT;
-      case 'Voice Status':
+      case 'Voice Event':
         return this.logChannelType.VOICE;
       default:
         return null;
