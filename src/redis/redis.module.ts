@@ -12,23 +12,31 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
       useFactory: (configService: ConfigService) => {
         const host = configService.get<string>('REDIS_HOST');
         const port = configService.get<number>('REDIS_PORT');
+        const password = configService.get<string>('REDIS_PASSWORD');
+        const username = configService.get<string>('REDIS_USERNAME');
         return new Redis.Redis({
           host,
           port,
           db: 0,
+          username,
+          password,
         });
       },
-      inject: [ConfigService]
+      inject: [ConfigService],
     },
     {
       provide: 'REDIS_CLIENT_DB1',
       useFactory: (configService: ConfigService) => {
         const host = configService.get<string>('REDIS_HOST');
         const port = configService.get<number>('REDIS_PORT');
+        const password = configService.get<string>('REDIS_PASSWORD');
+        const username = configService.get<string>('REDIS_USERNAME');
         return new Redis.Redis({
           host,
           port,
           db: 1,
+          username,
+          password,
         });
       },
       inject: [ConfigService],
@@ -38,10 +46,14 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
       useFactory: (configService: ConfigService) => {
         const host = configService.get<string>('REDIS_HOST');
         const port = configService.get<number>('REDIS_PORT');
+        const password = configService.get<string>('REDIS_PASSWORD');
+        const username = configService.get<string>('REDIS_USERNAME');
         return new Redis.Redis({
           host,
           port,
           db: 2,
+          username,
+          password,
         });
       },
       inject: [ConfigService],
