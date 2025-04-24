@@ -29,6 +29,7 @@ setGlobalDispatcher(new ProxyAgent(proxyUrl));
         IntentsBitField.Flags.GuildMessageReactions,
         IntentsBitField.Flags.GuildMessageTyping,
       ],
+      development: ['622400901386076170'],
     }),
     TypeOrmModule.forRoot({
       type: 'mysql',

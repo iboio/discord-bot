@@ -19,12 +19,18 @@ export class SetLoggerCommand {
   @SlashCommand({
     name: 'set-logger',
     description: 'Set the logger channel',
-    defaultMemberPermissions: PermissionFlagsBits.Administrator,
   })
   async setLoggerHandler(
     @Context() [interaction]: SlashCommandContext,
     @Options() { type, channel }: SetLoggerDto,
   ) {
+    if (
+      !interaction.memberPermissions?.has(PermissionFlagsBits.Administrator)
+    ) {
+      return interaction.reply({
+        content: 'You do not have permission to use this command.',
+      });
+    }
     const validTypes = this.constantService.logChannelChoice;
 
     if (!validTypes.includes(type)) {
