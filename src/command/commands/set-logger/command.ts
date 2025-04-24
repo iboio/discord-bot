@@ -5,6 +5,7 @@ import { SetLoggerAutoCompleteInterceptor } from './auto-complate';
 import { ConstantService } from '../../../constant/constant.service';
 import { RedisService } from '../../../redis/redis.service';
 import { BotConfig } from '../../../database/service/bot.config';
+import { PermissionFlagsBits } from 'discord-api-types/v10';
 
 @Injectable()
 export class SetLoggerCommand {
@@ -18,6 +19,7 @@ export class SetLoggerCommand {
   @SlashCommand({
     name: 'set-logger',
     description: 'Set the logger channel',
+    defaultMemberPermissions: PermissionFlagsBits.Administrator,
   })
   async setLoggerHandler(
     @Context() [interaction]: SlashCommandContext,

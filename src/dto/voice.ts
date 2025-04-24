@@ -1,14 +1,15 @@
-export class VoiceStateUpdate {
+export class VoiceEvent {
   type: string;
   guildId: string;
   channelId: string;
   channelName: string;
   userId: string;
+  userAvatar: string;
   username: string;
   eventTime: number;
 }
 
-export class VoiceStateSwitch {
+export class SwitchedVoiceEvent {
   type: string;
   guildId: string;
   oldChannelId: string;
@@ -17,6 +18,7 @@ export class VoiceStateSwitch {
   newChannelName: string;
   userId: string;
   username: string;
+  userAvatar: string;
   eventTime: number;
 }
 
