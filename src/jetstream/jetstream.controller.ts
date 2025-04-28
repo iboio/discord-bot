@@ -43,7 +43,6 @@ export class JetstreamController {
     @Ctx() context: NatsJetStreamContext,
   ) {
     try {
-      console.log('Voice event');
       await this.voiceLogger.VoiceEvent(data);
       context.message.ack();
     } catch (error) {
