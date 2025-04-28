@@ -44,7 +44,7 @@ export class MessageEventLogger {
     return new EmbedBuilder()
       .setTitle('Deleted Message')
       .setDescription(
-        `**Time**\n<t:${Math.floor(data.eventTime / 1000)}>\n\n**Message**\n${data.content}8\n\n**Information**\n➛ **Channel:** <#${data.channelId}>\n➛ **User:** <@!${data.userId}>\n➛ **User ID:** ${data.userId}`,
+        `**Time**\n<t:${Math.floor(data.eventTime / 1000)}>\n\n**Message**\n${data.content}\n\n**Information**\n➛ **Channel:** <#${data.channelId}>\n➛ **User:** <@!${data.userId}>\n➛ **User ID:** ${data.userId}`,
       )
       .setColor(13649992)
       .setAuthor({
