@@ -34,13 +34,13 @@ export class VoiceEventLogger {
           .setDescription(
             `<@!${data.userId}> joined channel <#${data.channelId}> (${data.channelName})\n\n`,
           )
-          .setColor(14782187)
+          .setColor('Green')
           .setAuthor({
             name: data.username,
             iconURL: data.userAvatar,
           })
           .setFooter({
-            text: `Haydar's gonna save usHaydar's gonna save us`,
+            text: `Haydar's gonna save us`,
             iconURL: `https://discord.com/assets/${await this.redisService.stringGet(this.constantService.RedisConfigDB, 'botProfileURL')}.png`,
           })
           .setTimestamp(new Date());
@@ -51,10 +51,10 @@ export class VoiceEventLogger {
           .setDescription(
             `<@!${data.userId}> left channel <#${data.channelId}> (${data.channelName})\n\n`,
           )
-          .setColor(2895537)
+          .setColor('Red')
           .setAuthor({
             name: data.username,
-            iconURL: data.userProfile,
+            iconURL: data.userAvatar,
           })
           .setFooter({
             text: `Haydar's gonna save us`,
@@ -68,7 +68,7 @@ export class VoiceEventLogger {
           .setDescription(
             `<@!${data.userId}> switched from <#${data.oldChannelId}> (${data.oldChannelName}) to <#${data.newChannelId}> (${data.newChannelName})\n\n`,
           )
-          .setColor(9060556)
+          .setColor('Yellow')
           .setAuthor({
             name: data.username,
             iconURL: data.userAvatar,
