@@ -44,9 +44,9 @@ export class MessageEventLogger {
     return new EmbedBuilder()
       .setTitle('Deleted Message')
       .setDescription(
-        `**Time**\n<t:${Math.floor(data.eventTime / 1000)}>\n\n**Message**\n${data.content}\n\n**Information**\n➛ **Channel:** <#${data.channelId}>\n➛ **User:** <@!${data.userId}>\n➛ **User ID:** ${data.userId}`,
+        `**Time**\n<t:${data.eventTime}>\n\n**Message**\n${data.content}\n\n**Information**\n➛ **Channel:** <#${data.channelId}>\n➛ **User:** <@!${data.userId}>\n➛ **User ID:** ${data.userId}`,
       )
-      .setColor(13649992)
+      .setColor('Red')
       .setAuthor({
         name: data.username,
         iconURL: data.userAvatar,
@@ -62,7 +62,7 @@ export class MessageEventLogger {
     return new EmbedBuilder()
       .setTitle('Edited Message')
       .setDescription(
-        `**Time**\n<t:${Math.floor(data.eventTime / 1000)}>\n\n` +
+        `**Time**\n<t:${data.eventTime}>\n\n` +
           `**Old Message**\n${data.oldContent}\n\n` +
           `**New Message**\n${data.newContent}\n\n` +
           `**Information**\n` +
@@ -70,7 +70,7 @@ export class MessageEventLogger {
           `➛ User: <@!${data.userId}>\n` +
           `➛ User ID: ${data.userId}`,
       )
-      .setColor(13795654)
+      .setColor('Yellow')
       .setAuthor({
         name: data.username,
         iconURL: data.userAvatar,
